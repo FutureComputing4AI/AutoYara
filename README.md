@@ -1,19 +1,19 @@
 # AutoYara
 
-This is the java code implementing the AutoYara algorithm, from out paper [_Automatic Yara Rule Generation Using Biclustering_](https://arxiv.org/abs/2009.03779). Given a set up input files that belong to a given malware family, AutoYara can create [Yara](https://yara.readthedocs.io/en/stable/) rules from the input samples. Our testing indicates it can be successful  with as few as 2 samples files, and can achieve very low false positive rates. The goal is to help analysts that need to create rules to weed out the easy families first, so that they can work on the samples that do not yield to automation. 
+This is the Java code implementing the AutoYara algorithm, from our paper [_Automatic Yara Rule Generation Using Biclustering_](https://arxiv.org/abs/2009.03779). Given a set of input files that belong to a given malware family, AutoYara can create [Yara](https://yara.readthedocs.io/en/stable/) rules from the input samples. Our testing indicates it can be successful with as few as 2 sample files, and can achieve very low false positive rates. The goal is to help analysts create rules to weed out the easy families first, so that they can work on the samples that do not yield to automation. 
 
-This is research code, and comes with no warranty or support. 
+This is research code, and comes with no warranty or support.
 
 
 ## Quick Start
 
-You can download a pre-built binary of Autoyara from the release tab. If you have Java 11 (or greater) installed, you can get started by using the `-i` flag and providing a path to a file. If you give a folder, files will be selected from that folder recursively.  Multiple files/paths can be specified using multiple `-i` arguments. 
+You can download a pre-built binary of AutoYara from the release tab. If you have Java 11 (or greater) installed, you can get started by using the `-i` flag and providing a path to a file. If you give a folder, files will be selected from that folder recursively.  Multiple files/paths can be specified using multiple `-i` arguments.
 
 ```
 java -jar AutoYara.jar -i ~/family_dataset/test/azero/
 ```
 
-The final output will be written to the current directory. If you want to change the output directory or output file name, you can use  `--out /path/to/name.yara` to change that.  
+The final output will be written to the current directory. If you want to change the output directory or output file name, you can use  `--out /path/to/name.yara` to change that.
 
 Unless you run on a few hundred files or more, the results should be done in a minute or two. The output is a standard Yara rule, like the below truncated example. 
 ```
